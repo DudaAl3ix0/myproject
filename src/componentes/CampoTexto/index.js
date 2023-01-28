@@ -1,6 +1,6 @@
 import './CampoTexto.css';
 const CampoTexto = (props) => { 
-    const placeholderInfoInput = `${props.placeholder}`
+    const placeholderInfoInput = `${props.placeholder}` //Como importar dados com const
     
     return(
         <div className="campo-texto">

@@ -1,15 +1,69 @@
+import { useState } from 'react';
+import Button from '../Button';
 import CampoTexto from '../CampoTexto';
+import Dropdown from '../Dropdown';
 import './Formulario.css';
 
+const Formulario = (props) => {
+    const Especies = [ 
+        'Cachorro',
+        'Gato',
+    ]
 
-const Formulario = () => {
+    const [nome, setNome] = useState('')
+    const [descricao, setDescricao] = useState('')
+    const [imagem, setImagem] = useState('')
+    const [especies, setEspecies] = useState('')
+
+
+    const aoSalvar = (evento) => {
+    evento.preventDefault()
+    props.aoAnimalCadastrado({
+        nome: nome,
+        descricao: descricao,
+        imagem: imagem,
+        especies: especies
+    })
+    }
+
     return(
        <section className="formulario">
-        <form>
+        <form onSubmit={aoSalvar}>
             <h2>Preencha os dados para adicionar o animal para adoção responsável.</h2>
-            <CampoTexto label='Nome' placeholder="Digite o nome do animal"/>
-            <CampoTexto label='Descrição' placeholder="Faça uma breve descrição sobre o animal"/>
-            <CampoTexto label='Imagem' placeholder="Digite o endereço da imagem"/>
+            <CampoTexto 
+                obrigatorio = {true} 
+                label='Nome' 
+                placeholder="Digite o nome do animal"
+                valor = {nome}
+                aoAlterado = {valor => setNome(valor)}
+            />
+
+            <CampoTexto  
+                obrigatorio = {true} 
+                label='Descrição' 
+                placeholder="Faça uma breve descrição sobre o animal"
+                valor = {descricao}
+                aoAlterado = {valor => setDescricao(valor)}
+            />
+
+            <CampoTexto 
+                label='Imagem' 
+                placeholder="Digite o endereço da imagem"
+                valor = {imagem}
+                aoAlterado = {valor => setImagem(valor)}
+            />
+
+            <Dropdown 
+            obrigatorio = {true} 
+            label='Espécie' 
+            itens={Especies}
+            valor = {especies}
+            aoAlterado = {valor => setEspecies(valor)}
+            />
+
+            <Button>
+                Adicionar Animal
+            </Button>
         </form>
        </section> 
     )

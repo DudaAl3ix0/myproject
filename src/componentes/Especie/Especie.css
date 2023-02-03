@@ -1,0 +1,12 @@
+.especie{
+    text-align: center;
+    padding: 32px;
+    background-color: #fae9f5;
+}
+
+.especie h3{
+    font-size: 32px;
+    border-bottom: 4px solid #DB6EBF;
+    display: inline-block;
+    padding-bottom: 8px;
+}

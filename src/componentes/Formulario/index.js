@@ -12,6 +12,7 @@ const Formulario = (props) => {
 
     const [nome, setNome] = useState('')
     const [descricao, setDescricao] = useState('')
+    const [telefone, setTelefone] = useState('')
     const [imagem, setImagem] = useState('')
     const [especies, setEspecies] = useState('')
 
@@ -21,6 +22,7 @@ const Formulario = (props) => {
     props.aoAnimalCadastrado({
         nome: nome,
         descricao: descricao,
+        telefone: telefone,
         imagem: imagem,
         especies: especies
     })
@@ -29,7 +31,7 @@ const Formulario = (props) => {
     return(
        <section className="formulario">
         <form onSubmit={aoSalvar}>
-            <h2>Preencha os dados para adicionar o animal para adoção responsável.</h2>
+            <h2>Preencha os dados para adicionar o animal para uma adoção responsável.</h2>
             <CampoTexto 
                 obrigatorio = {true} 
                 label='Nome' 
@@ -44,6 +46,13 @@ const Formulario = (props) => {
                 placeholder="Faça uma breve descrição sobre o animal"
                 valor = {descricao}
                 aoAlterado = {valor => setDescricao(valor)}
+            />
+
+            <CampoTexto 
+                label='Telefone' 
+                placeholder="Digite o telefone para contato"
+                valor = {telefone}
+                aoAlterado = {valor => setTelefone(valor)}
             />
 
             <CampoTexto 

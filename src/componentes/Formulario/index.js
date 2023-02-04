@@ -21,6 +21,12 @@ const Formulario = (props) => {
         imagem: imagem,
         especie: especie
     })
+        setNome('')
+        setDescricao ('')
+        setTelefone ('')
+        setImagem('')
+        setEspecie('')
+
     }
 
     return(

@@ -7,7 +7,7 @@ const Especie = (props) => {
     const cssH3 = {borderColor:props.corBorda}
 
     return(
-        props.animais.lenght >0 && <section className='especie' style={css}>
+           (props.animais.length > 0) ? <section className='especie' style={css}>
             <h3 style={cssH3}>{props.nome}</h3>
             <div className='especies'>
                     {props.animais.map(animal => 
@@ -18,7 +18,7 @@ const Especie = (props) => {
                     />)}
             </div>
         </section>
-
+        : ''
     )
 }
 export default Especie

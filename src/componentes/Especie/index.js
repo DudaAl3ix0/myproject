@@ -15,6 +15,8 @@ const Especie = (props) => {
                     descricao={animal.descricao}  
                     telefone={animal.telefone}  
                     imagem={animal.imagem}
+                    key={animal.nome}
+                    corBorda={props.corBorda}
                     />)}
             </div>
         </section>

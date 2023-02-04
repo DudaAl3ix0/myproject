@@ -22,7 +22,6 @@ function App() {
   const [animais, setAnimais] = useState([]) 
 
   const aoNovoAnimalCadastrado = (animal) =>{ 
-    console.log(animal) 
     setAnimais([...animais,animal]) 
   } 
 

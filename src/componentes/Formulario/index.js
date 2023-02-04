@@ -5,16 +5,11 @@ import Dropdown from '../Dropdown';
 import './Formulario.css';
 
 const Formulario = (props) => {
-    const Especies = [ 
-        'Cachorro',
-        'Gato',
-    ]
-
     const [nome, setNome] = useState('')
     const [descricao, setDescricao] = useState('')
     const [telefone, setTelefone] = useState('')
     const [imagem, setImagem] = useState('')
-    const [especies, setEspecies] = useState('')
+    const [especie, setEspecie] = useState('')
 
 
     const aoSalvar = (evento) => {
@@ -24,7 +19,7 @@ const Formulario = (props) => {
         descricao: descricao,
         telefone: telefone,
         imagem: imagem,
-        especies: especies
+        especie: especie
     })
     }
 
@@ -50,7 +45,7 @@ const Formulario = (props) => {
 
             <CampoTexto 
                 label='Telefone' 
-                placeholder="Digite o telefone para contato"
+                placeholder="(XX)XXXXX-XXXX"
                 valor = {telefone}
                 aoAlterado = {valor => setTelefone(valor)}
             />
@@ -65,9 +60,9 @@ const Formulario = (props) => {
             <Dropdown 
             obrigatorio = {true} 
             label='Espécie' 
-            itens={Especies}
-            valor = {especies}
-            aoAlterado = {valor => setEspecies(valor)}
+            itens={props.especies}
+            valor = {especie}
+            aoAlterado = {valor => setEspecie(valor)}
             />
 
             <Button>
